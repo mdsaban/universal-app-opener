@@ -20,7 +20,8 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "prepublishOnly": "pnpm build"
+    "prepublishOnly": "pnpm build",
+    "type-check": "tsc --noEmit"
   },
   "keywords": [
     "deep-link",
