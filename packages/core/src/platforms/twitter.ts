@@ -2,7 +2,7 @@
 import { DeepLinkHandler } from '../types';
 
 export const twitterHandler: DeepLinkHandler = {
-  match: (url) => url.match(/twitter\.com\/([^/?]+)/),
+  match: (url) => url.match(/x\.com\/([^/?]+)/),
 
   build: (webUrl, match) => {
     const username = match[1];

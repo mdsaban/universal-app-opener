@@ -1,4 +1,4 @@
-import { instagramHandler, linkedinHandler, unknownHandler, youtubeHandler,twitterHandler } from "./platforms";
+import { instagramHandler, linkedinHandler, unknownHandler, youtubeHandler, twitterHandler } from "./platforms";
 import { DeepLinkResult } from "./types";
 
 export * from './types';
