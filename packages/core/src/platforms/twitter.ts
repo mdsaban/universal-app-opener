@@ -28,8 +28,8 @@ export const twitterHandler: DeepLinkHandler = {
 
     const deepLinks = {
       default: {
-        ios: `twitter://user?screen_name=${username}`,
-        android: `intent://user?screen_name=${username}#Intent;scheme=twitter;package=com.twitter.android;end`,
+        ios: `twitter://user?screen_name=${encodeURIComponent(username)}`,
+        android: `intent://user?screen_name=${encodeURIComponent(username)}#Intent;scheme=twitter;package=com.twitter.android;end`,
       },
     };
 
