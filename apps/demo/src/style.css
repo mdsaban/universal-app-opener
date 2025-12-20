@@ -238,3 +238,11 @@ h1 {
   word-wrap: break-word;
 }
 
+.twitter-link:hover {
+  border-color: #f8f3f3;
+}
+
+.instagram-link:hover {
+  border-color:#833AB4;
+}
+
