@@ -1,0 +1,67 @@
+name: Publish to NPM
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    # 1. ONLY run if the release tag starts with 'core-v'
+    if: startsWith(github.ref_name, 'core-v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write 
+      id-token: write # Required for OIDC Trusted Publishing
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          ref: main 
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Sync package.json with Release Tag
+        run: |
+          # 2. Fix parsing: Remove 'core-v' prefix to get '1.0.3'
+          TAG_VERSION=${GITHUB_REF_NAME#core-v}
+          echo "Release tag is $TAG_VERSION"
+          
+          cd packages/core
+          
+          # Update version
+          npm version $TAG_VERSION --no-git-tag-version --allow-same-version
+          
+          echo "Package version updated to:"
+          grep '"version":' package.json
+
+      - name: Build Package
+        # Builds the whole workspace (including core)
+        run: pnpm build
+
+      - name: Publish to NPM
+        # 3. OIDC Change: 
+        # - Go into the specific package folder
+        # - Use --provenance (Enables Trusted Publishing)
+        # - No secrets.NPM_TOKEN needed!
+        run: |
+          cd packages/core
+          pnpm publish --provenance --access public --no-git-checks
+
+      - name: Commit Version Bump
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(core): sync version to ${{ github.ref_name }}"
+          branch: main
