@@ -1,4 +1,4 @@
-export type Platform = 'youtube' | 'linkedin' | 'instagram' | 'unknown';
+export type Platform = 'youtube' | 'linkedin' | 'instagram' | 'spotify' | 'unknown';
 
 export interface DeepLinkResult {
   webUrl: string;
@@ -8,6 +8,6 @@ export interface DeepLinkResult {
 }
 
 export interface DeepLinkHandler {
-  match(url: string): RegExpMatchArray | null;
+  match(url: string): RegExpMatchArray | null;  
   build(url: string, match: RegExpMatchArray): DeepLinkResult;
 }
