@@ -1,6 +1,18 @@
 import { DeepLinkHandler } from '../types';
 
 /**
+ * Reserved Instagram paths that should not be treated as usernames.
+ * These paths return null deep links to prevent invalid redirects.
+ */
+const RESERVED_PATHS = new Set([
+  'explore',
+  'accounts',
+  'reels',
+  'direct',
+  'developer',
+]);
+
+/**
  * Handler for generating Instagram deep links from web URLs.
  *
  * Supports the following content types:
@@ -33,16 +45,7 @@ export const instagramHandler: DeepLinkHandler = {
     // Case 2: Profile
     const username = match[3];
 
-    // Optional: protect against reserved paths
-    const reserved = new Set([
-      'explore',
-      'accounts',
-      'reels',
-      'direct',
-      'developer',
-    ]);
-
-    if (reserved.has(username)) {
+    if (RESERVED_PATHS.has(username)) {
       return {
         webUrl,
         ios: null,
@@ -51,12 +54,10 @@ export const instagramHandler: DeepLinkHandler = {
       };
     }
 
-    const encodedUsername = encodeURIComponent(username);
-
     return {
       webUrl,
-      ios: `instagram://user?username=${encodedUsername}`,
-      android: `intent://www.instagram.com/${encodedUsername}/#Intent;package=com.instagram.android;scheme=https;end`,
+      ios: `instagram://user?username=${encodeURIComponent(username)}`,
+      android: `intent://www.instagram.com/${encodeURIComponent(username)}/#Intent;package=com.instagram.android;scheme=https;end`,
       platform: 'instagram',
     };
   },
