@@ -1,5 +1,17 @@
 import { DeepLinkHandler } from '../types';
 
+/**
+ * Handler for generating Instagram deep links from web URLs.
+ *
+ * Supports the following content types:
+ * - `p` - Posts (photos/carousels)
+ * - `reel` - Reels (short videos)
+ * - Profile URLs - User profiles
+ *
+ * Reserved paths like 'explore', 'accounts', 'reels', 'direct', 'developer'
+ * are ignored and return null deep links to prevent invalid redirects.
+ *
+ */
 export const instagramHandler: DeepLinkHandler = {
   match: (url) =>
     url.match(/instagram\.com\/(?:(p|reel)\/([^/?]+)|([^/?]+))/),
@@ -42,7 +54,7 @@ export const instagramHandler: DeepLinkHandler = {
     return {
       webUrl,
       ios: `instagram://user?username=${username}`,
-      android: `intent://user?username=${username}#Intent;scheme=instagram;package=com.instagram.android;end`,
+      android: `intent://www.instagram.com/${username}/#Intent;package=com.instagram.android;scheme=https;end`,
       platform: 'instagram',
     };
   },
