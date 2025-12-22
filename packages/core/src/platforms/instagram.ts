@@ -20,7 +20,7 @@ export const instagramHandler: DeepLinkHandler = {
     // Case 1: Post or Reel
     if (match[1] && match[2]) {
       const type = match[1];      // "p" | "reel"
-      const id = match[2];
+      const id = encodeURIComponent(match[2]);
 
       return {
         webUrl,
@@ -51,10 +51,12 @@ export const instagramHandler: DeepLinkHandler = {
       };
     }
 
+    const encodedUsername = encodeURIComponent(username);
+
     return {
       webUrl,
-      ios: `instagram://user?username=${username}`,
-      android: `intent://www.instagram.com/${username}/#Intent;package=com.instagram.android;scheme=https;end`,
+      ios: `instagram://user?username=${encodedUsername}`,
+      android: `intent://www.instagram.com/${encodedUsername}/#Intent;package=com.instagram.android;scheme=https;end`,
       platform: 'instagram',
     };
   },
