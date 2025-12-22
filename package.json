@@ -12,7 +12,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.50.0",
     "@typescript-eslint/parser": "^8.50.0",
-    "eslint": "^9.39.2",
+    "eslint": "^8.57.0",
     "eslint-config-prettier": "^10.1.8",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
@@ -33,5 +33,8 @@
     "**/*.{json,md,yml}": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "universal-app-opener": "^0.2.0"
   }
 }
