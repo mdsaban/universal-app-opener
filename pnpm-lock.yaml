@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      universal-app-opener:
+        specifier: ^0.2.0
+        version: 0.2.0
     devDependencies:
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.50.0
@@ -1256,6 +1260,9 @@ packages:
   ufo@1.6.1:
     resolution: {integrity: sha512-9a4/uxlTWJ4+a5i0ooc1rU7C7YOw3wT+UGqdeNNHWnOF9qcMBgLRS+4IYUqbczewFx4mLEig6gawh7X6mFlEkA==}
 
+  universal-app-opener@0.2.0:
+    resolution: {integrity: sha512-vMHqnEDBTx1wb4qonigtQIIrCQoPZyDR76Dmkf67pOmsYg3LMPtp2HHrYWJdhdF0R4ABhBR29Mg+HnZl2BxBFw==}
+
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
@@ -2353,6 +2360,8 @@ snapshots:
   typescript@5.9.3: {}
 
   ufo@1.6.1: {}
+
+  universal-app-opener@0.2.0: {}
 
   uri-js@4.4.1:
     dependencies:

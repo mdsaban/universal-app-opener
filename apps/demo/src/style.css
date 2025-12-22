@@ -108,6 +108,10 @@ h1 {
   border-color: #0077b5;
 }
 
+.twitter-link:hover {
+  border-color: #1da1f2;
+}
+
 .divider {
   text-align: center;
   margin: 2rem 0;
