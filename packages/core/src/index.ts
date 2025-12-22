@@ -1,4 +1,4 @@
-import { instagramHandler, linkedinHandler, unknownHandler, youtubeHandler } from "./platforms";
+import { instagramHandler, linkedinHandler, spotifyHandler, unknownHandler, youtubeHandler } from "./platforms";
 import { DeepLinkResult } from "./types";
 
 export * from './types';
@@ -6,8 +6,15 @@ export * from './types';
 const handlers = [
   youtubeHandler,
   linkedinHandler,
-  instagramHandler
+  instagramHandler,
+  spotifyHandler
 ];
+/**
+ * Resolves a web URL to a platform-specific deep link result.
+ *
+ * @param url - The web URL to resolve
+ * @returns A `DeepLinkResult` containing any platform-specific deep link (if available) and the corresponding web URL for fallback
+ */
 export function generateDeepLink(url: string): DeepLinkResult {
   const webUrl = url.trim();
 
@@ -83,4 +90,3 @@ export function openLink(url: string, options: OpenLinkOptions = {}): void {
     }
   }
 }
-
