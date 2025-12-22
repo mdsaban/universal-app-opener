@@ -18,7 +18,7 @@ export const spotifyHandler: DeepLinkHandler = {
 
   build: (webUrl, match) => {
     const type = match[1];
-    const id = match[2];
+    const id = encodeURIComponent(match[2]);
 
     return {
       webUrl,
