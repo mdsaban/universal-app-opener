@@ -44,8 +44,9 @@ export const instagramHandler: DeepLinkHandler = {
 
     // Case 2: Profile
     const username = match[3];
+    const normalizedUsername = username.toLowerCase().trim();
 
-    if (RESERVED_PATHS.has(username)) {
+    if (RESERVED_PATHS.has(normalizedUsername)) {
       return {
         webUrl,
         ios: null,
