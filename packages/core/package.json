@@ -18,8 +18,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean --sourcemap --no-splitting --no-config",
+    "dev": "tsup src/index.ts --watch --format cjs,esm --dts --clean --sourcemap --no-splitting --no-config",
     "prepublishOnly": "pnpm build",
     "type-check": "tsc --noEmit"
   },

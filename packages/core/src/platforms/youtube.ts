@@ -1,5 +1,12 @@
 import { DeepLinkHandler } from '../types';
 
+/**
+ * Handler for generating YouTube deep links from web URLs.
+ *
+ * Supports the following URL formats:
+ * - `youtube.com/watch?v={videoId}` - Standard watch URLs
+ * - `youtu.be/{videoId}` - Shortened share URLs
+ */
 export const youtubeHandler: DeepLinkHandler = {
   match: (url) =>
     url.match(/youtube\.com\/watch\?v=([^&]+)/) ??

@@ -1,5 +1,11 @@
 import { DeepLinkHandler } from '../types';
 
+/**
+ * Handler for generating LinkedIn deep links from web URLs.
+ *
+ * Supports the following URL format:
+ * - `linkedin.com/in/{profileId}` - User profile URLs
+ */
 export const linkedinHandler: DeepLinkHandler = {
   match: (url) => url.match(/linkedin\.com\/in\/([^/?]+)/),
 
