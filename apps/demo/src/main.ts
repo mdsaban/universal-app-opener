@@ -115,9 +115,11 @@ applyMessage.addEventListener('click', () => {
       displayResult(result);
 
       whatsappModal.classList.add('hidden');
+      addMessageCheckbox.checked = false;
     }
   } else {
     whatsappModal.classList.add('hidden');
+    addMessageCheckbox.checked = false;
   }
 });
 

@@ -1,15 +1,13 @@
 import { DeepLinkHandler } from '../types';
 
 export const whatsappHandler: DeepLinkHandler = {
-  match: (url) =>
-    url.match(/^(?:https?:\/\/)?(?:www\.)?wa\.me\/\+?(\d{1,3})(\d+)(?:\?text=([^&]+))?$/),
+  match: (url) => url.match(/^(?:https?:\/\/)?(?:www\.)?wa\.me\/\+?(\d+)(?:\?text=([^&]+))?$/),
 
   build: (webUrl, match) => {
-    const countryCode = match[1];
-    const phoneNumber = match[2];
-    const text = match[3];
+    const phoneNumber = match[1];
+    const text = match[2];
 
-    const fullNumber = `+${countryCode}${phoneNumber}`;
+    const fullNumber = phoneNumber.startsWith('+') ? phoneNumber : `+${phoneNumber}`;
 
     const encodedText = text ? decodeURIComponent(text) : null;
 
