@@ -238,3 +238,12 @@ h1 {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
+
+.twitter-link:hover {
+  border-color: #1DA1F2;
+}
+
+.instagram-link:hover {
+  border-color:#833AB4;
+}
+
