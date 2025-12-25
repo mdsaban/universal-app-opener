@@ -5,11 +5,12 @@ export const linkedinHandler: DeepLinkHandler = {
 
   build: (webUrl, match) => {
     const profileId = match[1];
+    const urlWithoutProtocol = webUrl.replace(/^https?:\/\//, '');
 
     return {
       webUrl,
-      ios: `linkedin://in/${profileId}`,
-      android: `intent://in/${profileId}#Intent;scheme=linkedin;package=com.linkedin.android;end`,
+      ios: `linkedin://profile/${profileId}`,
+      android: `intent://${urlWithoutProtocol}#Intent;scheme=https;package=com.linkedin.android;S.browser_fallback_url=${webUrl};end`,
       platform: 'linkedin',
     };
   },

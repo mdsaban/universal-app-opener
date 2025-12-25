@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -17,42 +17,59 @@
       </div>
       
       <div class="mobile-notice">
-        <p>📱 <strong>To see deep links in action:</strong> Open this page on a mobile device with YouTube/LinkedIn apps installed</p>
+        <p>
+          📱 <strong>To see deep links in action:</strong> Open this page on a mobile device with
+          YouTube/LinkedIn apps installed
+        </p>
       </div>
-      
+
       <div class="examples-section">
         <h2>Try Example Links</h2>
         <div class="example-links">
-          <a href="#" class="example-link youtube-link" data-url="https://www.youtube.com/watch?v=BdgwH614LM0&t=14s">
+          <a
+            href="#"
+            class="example-link youtube-link"
+            data-url="https://www.youtube.com/watch?v=BdgwH614LM0&t=14s"
+          >
             <span class="link-icon">▶️</span>
             <span class="link-text">YouTube Video</span>
           </a>
-          <a href="#" class="example-link linkedin-link" data-url="https://www.linkedin.com/in/iamsaban/">
+          <a
+            href="#"
+            class="example-link linkedin-link"
+            data-url="https://www.linkedin.com/in/iamsaban/"
+          >
             <span class="link-icon">💼</span>
             <span class="link-text">LinkedIn Profile</span>
           </a>
-          <a href="#" class="example-link instagram-link" data-url="https://www.instagram.com/saban.talks/">
+          <a
+            href="#"
+            class="example-link instagram-link"
+            data-url="https://www.instagram.com/saban.talks/"
+          >
             <span class="link-icon">📷</span>
-            <span class="link-text" style="padding-top: 8px;">Instagram Profile</span>
+            <span class="link-text" style="padding-top: 8px">Instagram Profile</span>
           </a>
         </div>
       </div>
-      
+
       <div class="divider">
         <span>OR</span>
       </div>
-      
+
       <div class="input-section">
-        <input 
-          type="text" 
-          id="urlInput" 
+        <input
+          type="text"
+          id="urlInput"
           placeholder="Paste a URL here (YouTube/LinkedIn)"
           class="url-input"
         />
         <button id="generateBtn" class="generate-btn">Generate Deep Links</button>
-        <button id="openBtn" class="generate-btn hidden" style="background-color: #2ecc71;">Open App</button>
+        <button id="openBtn" class="generate-btn hidden" style="background-color: #2ecc71">
+          Open App
+        </button>
       </div>
-      
+
       <div id="outputSection" class="output-section hidden">
         <h2>Generated Deep Links</h2>
         <button id="toggleDeepLinks" class="toggle-btn">
@@ -64,8 +81,7 @@
         </div>
       </div>
     </div>
-    
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
-

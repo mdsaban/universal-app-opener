@@ -25,9 +25,9 @@ yarn add universal-app-opener
 ## Quick Start
 
 ```typescript
-import { openLink } from "universal-app-opener";
+import { openLink } from 'universal-app-opener';
 
-openLink("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+openLink('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
 ```
 
 That's it! The library automatically detects your platform and opens the appropriate app or web URL.
@@ -61,7 +61,6 @@ For full usage instructions, API details, and advanced examples, see the [Core P
 If you're interested in contributing in the beta phase, you can join our private Discord community: [Discord Invite](https://hub.mdsaban.com/?ref=secret)
 
 For contribution guidelines, development workflow, and instructions to add new platforms, see [CONTRIBUTING.md](./packages/core/CONTRIBUTING.md).
-
 
 ## Goal
 

@@ -1,6 +1,6 @@
 {
   "name": "universal-app-opener",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A zero-dependency library to generate deep links from HTTP URLs",
   "license": "MIT",
   "main": "./dist/index.js",

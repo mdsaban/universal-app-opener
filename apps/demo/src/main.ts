@@ -23,7 +23,7 @@ function displayResult(result: ReturnType<typeof generateDeepLink>) {
   outputSection.classList.remove('hidden');
 }
 
-exampleLinks.forEach(link => {
+exampleLinks.forEach((link) => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
     const url = link.getAttribute('data-url');
@@ -35,12 +35,12 @@ exampleLinks.forEach(link => {
 
 generateBtn.addEventListener('click', () => {
   const url = urlInput.value.trim();
-  
+
   if (!url) {
     alert('Please enter a URL');
     return;
   }
-  
+
   const result = generateDeepLink(url);
   currentResult = result;
   displayResult(result);
@@ -59,7 +59,7 @@ toggleDeepLinks.addEventListener('click', () => {
   deepLinksContent.classList.toggle('hidden');
   const toggleText = toggleDeepLinks.querySelector('.toggle-text') as HTMLElement;
   const toggleIcon = toggleDeepLinks.querySelector('.toggle-icon') as HTMLElement;
-  
+
   if (isHidden) {
     toggleText.textContent = 'Hide Deep Links';
     toggleIcon.textContent = '▲';
@@ -74,4 +74,3 @@ urlInput.addEventListener('keypress', (e) => {
     generateBtn.click();
   }
 });
-
