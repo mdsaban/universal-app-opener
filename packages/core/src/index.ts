@@ -1,15 +1,21 @@
-import {
-  instagramHandler,
-  linkedinHandler,
-  unknownHandler,
-  youtubeHandler,
-  spotifyHandler,
-} from './platforms';
-import { DeepLinkResult } from './types';
+import { threadsHandler, instagramHandler, linkedinHandler, unknownHandler, youtubeHandler, spotifyHandler  } from "./platforms";
+import { DeepLinkResult } from "./types";
 
 export * from './types';
 
-const handlers = [youtubeHandler, linkedinHandler, instagramHandler, spotifyHandler];
+const handlers = [
+  youtubeHandler,
+  linkedinHandler,
+  instagramHandler,
+  spotifyHandler,
+  threadsHandler
+];
+/**
+ * Map an input URL to a DeepLinkResult containing web and platform-specific deep links.
+ *
+ * @param url - The input URL (may include surrounding whitespace); it will be trimmed before matching.
+ * @returns A DeepLinkResult with the normalized `webUrl` and any `ios`/`android` deep-link targets when the URL matches a known platform; if no platform match is found, the result provides a fallback web link.
+ */
 export function generateDeepLink(url: string): DeepLinkResult {
   const webUrl = url.trim();
 
