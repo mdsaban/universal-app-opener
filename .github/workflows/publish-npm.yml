@@ -10,14 +10,14 @@ jobs:
     if: startsWith(github.ref_name, 'core-v')
     runs-on: ubuntu-latest
     permissions:
-      contents: write 
+      contents: write
       id-token: write # Required for OIDC/trusted publishing
-    
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
-          ref: main 
+          ref: main
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -41,9 +41,9 @@ jobs:
           # Clean the tag: "core-v1.1.0" -> "1.1.0"
           TAG_VERSION=${GITHUB_REF_NAME#core-v}
           echo "Release tag is $TAG_VERSION"
-          
+
           cd packages/core
-          
+
           # Update version in package.json
           npm version $TAG_VERSION --no-git-tag-version --allow-same-version
 
@@ -59,6 +59,6 @@ jobs:
         if: success()
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore(core): sync version to ${{ github.ref_name }}"
+          commit_message: 'chore(core): sync version to ${{ github.ref_name }}'
           branch: main
           file_pattern: 'packages/core/package.json'

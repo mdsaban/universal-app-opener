@@ -1,4 +1,4 @@
-import { instagramHandler, linkedinHandler, unknownHandler, youtubeHandler, twitterHandler } from "./platforms";
+import { instagramHandler, linkedinHandler, unknownHandler, youtubeHandler, twitterHandler, spotifyHandler } from "./platforms";
 import { DeepLinkResult } from "./types";
 
 export * from './types';
@@ -7,7 +7,8 @@ const handlers = [
   youtubeHandler,
   linkedinHandler,
   instagramHandler,
-  twitterHandler
+  twitterHandler,
+  spotifyHandler,
 ];
 export function generateDeepLink(url: string): DeepLinkResult {
   const webUrl = url.trim();
@@ -47,11 +48,7 @@ export interface OpenLinkOptions {
 }
 
 export function openLink(url: string, options: OpenLinkOptions = {}): void {
-  const {
-    fallbackToWeb = true,
-    fallbackDelay = 2500,
-    openInNewTab = false
-  } = options;
+  const { fallbackToWeb = true, fallbackDelay = 2500, openInNewTab = false } = options;
 
   const os = detectOS();
   const result = generateDeepLink(url);
@@ -84,4 +81,3 @@ export function openLink(url: string, options: OpenLinkOptions = {}): void {
     }
   }
 }
-

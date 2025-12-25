@@ -1,9 +1,7 @@
 import { DeepLinkHandler } from '../types';
 
 export const youtubeHandler: DeepLinkHandler = {
-  match: (url) =>
-    url.match(/youtube\.com\/watch\?v=([^&]+)/) ??
-    url.match(/youtu\.be\/([^?]+)/),
+  match: (url) => url.match(/youtube\.com\/watch\?v=([^&]+)/) ?? url.match(/youtu\.be\/([^?]+)/),
 
   build: (webUrl, match) => {
     const videoId = match[1];
