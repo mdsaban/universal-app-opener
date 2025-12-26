@@ -11,15 +11,27 @@
       <h1>Universal App Opener</h1>
       <p class="subtitle">Convert HTTP URLs to Native Mobile Deep Links</p>
 
-      <div class="links-bar" style="margin-bottom: 1.5em; text-align: center;">
-        <a href="https://www.npmjs.com/package/universal-app-opener" target="_blank" rel="noopener" style="margin-right: 1.5em; color: #ffffff;">View on npm</a>
-        <a href="https://github.com/mdsaban/universal-app-opener" target="_blank" rel="noopener" style="color: #ffffff;">Source on GitHub</a>
+      <div class="links-bar" style="margin-bottom: 1.5em; text-align: center">
+        <a
+          href="https://www.npmjs.com/package/universal-app-opener"
+          target="_blank"
+          rel="noopener"
+          style="margin-right: 1.5em; color: #ffffff"
+          >View on npm</a
+        >
+        <a
+          href="https://github.com/mdsaban/universal-app-opener"
+          target="_blank"
+          rel="noopener"
+          style="color: #ffffff"
+          >Source on GitHub</a
+        >
       </div>
-      
+
       <div class="mobile-notice">
         <p>
           📱 <strong>To see deep links in action:</strong> Open this page on a mobile device with
-          YouTube/LinkedIn apps installed
+          YouTube/LinkedIn/Discord apps installed
         </p>
       </div>
 
@@ -50,6 +62,10 @@
             <span class="link-icon">📷</span>
             <span class="link-text" style="padding-top: 8px">Instagram Profile</span>
           </a>
+          <a href="#" class="example-link discord-link" data-url="https://discord.gg/discord">
+            <span class="link-icon">💬</span>
+            <span class="link-text">Discord Invite</span>
+          </a>
         </div>
       </div>
 
@@ -61,7 +77,7 @@
         <input
           type="text"
           id="urlInput"
-          placeholder="Paste a URL here (YouTube/LinkedIn)"
+          placeholder="Paste a URL here (YouTube/LinkedIn/Discord/etc)"
           class="url-input"
         />
         <button id="generateBtn" class="generate-btn">Generate Deep Links</button>
