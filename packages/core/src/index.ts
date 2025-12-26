@@ -3,13 +3,14 @@ import {
   linkedinHandler,
   unknownHandler,
   youtubeHandler,
+  telegramHandler,
   spotifyHandler,
 } from './platforms';
 import { DeepLinkResult } from './types';
 
 export * from './types';
 
-const handlers = [youtubeHandler, linkedinHandler, instagramHandler, spotifyHandler];
+const handlers = [youtubeHandler, linkedinHandler, instagramHandler, telegramHandler, spotifyHandler];
 export function generateDeepLink(url: string): DeepLinkResult {
   const webUrl = url.trim();
 
