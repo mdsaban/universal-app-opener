@@ -238,3 +238,33 @@ h1 {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
+
+/* Responsive Styles for mobile devices*/
+@media (max-width: 768px) {
+  .input-section {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .url-input {
+    width: 100%;
+  }
+
+  .generate-btn {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1.05rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}
