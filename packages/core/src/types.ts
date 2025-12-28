@@ -1,4 +1,15 @@
-export type Platform = 'youtube' | 'linkedin' | 'instagram' | 'spotify' | 'whatsapp' | 'facebook' | 'reddit' | 'threads' | 'discord' | 'unknown';
+export type Platform =
+  | 'youtube'
+  | 'linkedin'
+  | 'instagram'
+  | 'spotify'
+  | 'whatsapp'
+  | 'facebook'
+  | 'reddit'
+  | 'threads'
+  | 'discord'
+  | 'twitch'
+  | 'unknown';
 
 export interface DeepLinkResult {
   webUrl: string;

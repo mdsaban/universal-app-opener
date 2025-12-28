@@ -119,6 +119,12 @@ h1 {
   object-fit: contain;
 }
 
+.link-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .link-text {
   font-size: 1.05rem;
   font-weight: 500;
@@ -128,6 +134,7 @@ h1 {
 .linkedin-link:hover { border-color: rgba(0, 119, 181, 0.3); }
 .instagram-link:hover { border-color: rgba(225, 48, 108, 0.3); }
 .discord-link:hover { border-color: rgba(88, 101, 242, 0.3); }
+.twitch-link:hover { border-color: rgba(145, 70, 255, 0.3); }
 .facebook-link:hover { border-color: rgba(24, 119, 242, 0.3); }
 
 .divider {
