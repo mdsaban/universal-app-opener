@@ -9,6 +9,7 @@ import {
   spotifyHandler,
   discordHandler,
   githubHandler,
+  pinterestHandler,
 } from './platforms';
 import { DeepLinkResult } from './types';
 
@@ -24,6 +25,7 @@ const handlers = [
   whatsappHandler,
   threadsHandler,
   githubHandler,
+  pinterestHandler,
 ];
 export function generateDeepLink(url: string): DeepLinkResult {
   const webUrl = url.trim();
