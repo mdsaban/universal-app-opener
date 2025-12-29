@@ -24,6 +24,7 @@ const handlers = [
   spotifyHandler,
   whatsappHandler,
   threadsHandler,
+  githubHandler,
 ];
 export function generateDeepLink(url: string): DeepLinkResult {
   const webUrl = normalizeUrl(url);
