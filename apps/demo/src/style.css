@@ -10,7 +10,7 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: #1a1a1a;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
   color: #e0e0e0;
   min-height: 100vh;
   display: flex;
@@ -28,20 +28,24 @@ h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
   text-align: center;
-  color: #ffffff;
+  background: linear-gradient(to right, #fff, #a5a5a5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
 }
 
 .subtitle {
   text-align: center;
   color: #a0a0a0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   font-size: 1.1rem;
+  font-weight: 300;
 }
 
 .mobile-notice {
-  background: #2a4a6a;
-  border: 1px solid #3a5a7a;
-  border-radius: 8px;
+  background: rgba(42, 74, 106, 0.3);
+  border: 1px solid rgba(58, 90, 122, 0.5);
+  border-radius: 12px;
   padding: 16px;
   margin-bottom: 2rem;
   text-align: center;
@@ -59,58 +63,76 @@ h1 {
 }
 
 .examples-section h2 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin-bottom: 1rem;
-  color: #ffffff;
+  color: #888;
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 
 .example-links {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
 .example-link {
   display: flex;
   align-items: center;
-  gap: 12px;
+  width: 100%;
+  gap: 16px;
   padding: 16px 20px;
-  background: #2a2a2a;
-  border: 2px solid #333;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
   text-decoration: none;
   color: #e0e0e0;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  @media screen and (min-width: 600px) {
+    width: calc(33% - 6px);
+  }
 }
 
 .example-link:hover {
-  background: #333;
-  border-color: #4a9eff;
+  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .link-icon {
-  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.link-icon svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .link-text {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 500;
 }
 
-.youtube-link:hover {
-  border-color: #ff0000;
-}
-
-.linkedin-link:hover {
-  border-color: #0077b5;
-}
+.youtube-link:hover { border-color: rgba(255, 0, 0, 0.3); }
+.linkedin-link:hover { border-color: rgba(0, 119, 181, 0.3); }
+.instagram-link:hover { border-color: rgba(225, 48, 108, 0.3); }
+.discord-link:hover { border-color: rgba(88, 101, 242, 0.3); }
+.facebook-link:hover { border-color: rgba(24, 119, 242, 0.3); }
 
 .divider {
   text-align: center;
-  margin: 2rem 0;
+  margin: 2.5rem 0;
   position: relative;
 }
 
@@ -121,64 +143,74 @@ h1 {
   left: 0;
   right: 0;
   height: 1px;
-  background: #333;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
 }
 
 .divider span {
-  background: #1a1a1a;
+  background: #161616; 
   padding: 0 16px;
   color: #666;
   position: relative;
   font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 10px;
 }
 
 .input-section {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 2rem;
 }
 
 .url-input {
   flex: 1;
-  padding: 12px 16px;
+  padding: 16px;
   font-size: 1rem;
-  border: 2px solid #333;
-  border-radius: 8px;
-  background: #2a2a2a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
   color: #e0e0e0;
   font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+  transition: all 0.3s ease;
 }
 
 .url-input:focus {
   outline: none;
   border-color: #4a9eff;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 4px rgba(74, 158, 255, 0.1);
 }
 
 .generate-btn {
-  padding: 12px 24px;
+  padding: 0 28px;
   font-size: 1rem;
   background: #4a9eff;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  font-weight: 500;
-  transition: background 0.2s;
+  font-weight: 600;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
 }
 
 .generate-btn:hover {
   background: #3a8eef;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(74, 158, 255, 0.4);
 }
 
 .generate-btn:active {
   background: #2a7edf;
+  transform: translateY(0);
 }
 
 .output-section {
-  background: #2a2a2a;
-  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
   padding: 24px;
-  border: 1px solid #333;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .output-section.hidden {
@@ -186,7 +218,7 @@ h1 {
 }
 
 .output-section h2 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
   color: #ffffff;
 }
@@ -194,9 +226,9 @@ h1 {
 .toggle-btn {
   width: 100%;
   padding: 12px 16px;
-  background: #333;
-  border: 1px solid #444;
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
   color: #e0e0e0;
   font-size: 0.95rem;
   cursor: pointer;
@@ -208,7 +240,7 @@ h1 {
 }
 
 .toggle-btn:hover {
-  background: #3a3a3a;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .toggle-icon {
@@ -225,16 +257,49 @@ h1 {
 }
 
 .json-output {
-  background: #1a1a1a;
-  padding: 16px;
-  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 12px;
   overflow-x: auto;
   font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
   font-size: 0.9rem;
-  line-height: 1.5;
-  color: #e0e0e0;
-  border: 1px solid #333;
+  line-height: 1.6;
+  color: #a8ff60;
+  border: 1px solid rgba(255, 255, 255, 0.05);
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
+/* Responsive Styles for mobile devices*/
+@media (max-width: 768px) {
+  .container {
+    padding: 24px;
+  }
+
+  .input-section {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .url-input {
+    width: 100%;
+  }
+
+  .generate-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.05rem;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}

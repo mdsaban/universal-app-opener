@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,61 +11,124 @@
       <h1>Universal App Opener</h1>
       <p class="subtitle">Convert HTTP URLs to Native Mobile Deep Links</p>
 
-      <div class="links-bar" style="margin-bottom: 1.5em; text-align: center;">
-        <a href="https://www.npmjs.com/package/universal-app-opener" target="_blank" rel="noopener" style="margin-right: 1.5em; color: #ffffff;">View on npm</a>
-        <a href="https://github.com/mdsaban/universal-app-opener" target="_blank" rel="noopener" style="color: #ffffff;">Source on GitHub</a>
+      <div class="links-bar" style="margin-bottom: 1.5em; text-align: center">
+        <a
+          href="https://www.npmjs.com/package/universal-app-opener"
+          target="_blank"
+          rel="noopener"
+          style="margin-right: 1.5em; color: #ffffff"
+          >View on npm</a
+        >
+        <a
+          href="https://github.com/mdsaban/universal-app-opener"
+          target="_blank"
+          rel="noopener"
+          style="color: #ffffff"
+          >Source on GitHub</a
+        >
       </div>
-      
+
       <div class="mobile-notice">
-        <p>📱 <strong>To see deep links in action:</strong> Open this page on a mobile device with YouTube/LinkedIn apps installed</p>
+        <p>
+          📱 <strong>To see deep links in action:</strong> Open this page on a mobile device with
+          YouTube/LinkedIn/Discord apps installed
+        </p>
       </div>
-      
+
       <div class="examples-section">
         <h2>Try Example Links</h2>
         <div class="example-links">
-          <a href="#" class="example-link youtube-link" data-url="https://www.youtube.com/watch?v=BdgwH614LM0&t=14s">
-            <span class="link-icon">▶️</span>
+          <a
+            href="https://www.youtube.com/watch?v=BdgwH614LM0&t=14s"
+            class="example-link youtube-link"
+            data-url="https://www.youtube.com/watch?v=BdgwH614LM0&t=14s"
+            target="_blank"
+          >
+            <span class="link-icon"><img src="/icons/youtube.svg" alt="YouTube" /></span>
             <span class="link-text">YouTube Video</span>
           </a>
-          <a href="#" class="example-link linkedin-link" data-url="https://www.linkedin.com/in/iamsaban/">
-            <span class="link-icon">💼</span>
+          <a
+            href="https://www.linkedin.com/in/iamsaban/"
+            class="example-link linkedin-link"
+            data-url="https://www.linkedin.com/in/iamsaban/"
+            target="_blank"
+          >
+            <span class="link-icon"><img src="/icons/linkedin.svg" alt="LinkedIn" /></span>
             <span class="link-text">LinkedIn Profile</span>
           </a>
-          <a href="#" class="example-link instagram-link" data-url="https://www.instagram.com/saban.talks/">
-            <span class="link-icon">📷</span>
-            <span class="link-text" style="padding-top: 8px;">Instagram Profile</span>
+          <a
+            href="https://www.instagram.com/saban.talks/"
+            class="example-link instagram-link"
+            data-url="https://www.instagram.com/saban.talks/"
+            target="_blank"
+          >
+            <span class="link-icon"><img src="/icons/instagram.svg" alt="Instagram" /></span>
+            <span class="link-text">Instagram Profile</span>
+          </a>
+          <a
+            href="https://discord.gg/discord"
+            class="example-link discord-link"
+            data-url="https://discord.gg/discord"
+            target="_blank"
+          >
+            <span class="link-icon"><img src="/icons/discord.svg" alt="Discord" /></span>
+            <span class="link-text">Discord Invite</span>
+          </a>
+          <a
+            href="https://www.facebook.com/GitHub/"
+            class="example-link facebook-link"
+            data-url="https://www.facebook.com/GitHub/"
+            target="_blank"
+          >
+            <span class="link-icon"><img src="/icons/facebook.svg" alt="Facebook" /></span>
+            <span class="link-text">Facebook Profile</span>
+          </a>
+          <a
+            href="https://github.com/github"
+            class="example-link github-link"
+            data-url="https://github.com/github"
+            target="_blank"
+          >
+            <span class="link-icon"><img src="/icons/github.svg" alt="GitHub" /></span>
+            <span class="link-text">GitHub Profile</span>
+          </a>
+          <a
+            href="https://www.twitch.tv/directory/category/valorant"
+            class="example-link twitch-link"
+            data-url="https://www.twitch.tv/directory/category/valorant"
+            target="_blank"
+          >
+            <span class="link-icon"><img src="/icons/twitch.svg" alt="Twitch" /></span>
+            <span class="link-text">Twitch Valorant</span>
           </a>
         </div>
       </div>
-      
+
       <div class="divider">
         <span>OR</span>
       </div>
-      
+
       <div class="input-section">
-        <input 
-          type="text" 
-          id="urlInput" 
-          placeholder="Paste a URL here (YouTube/LinkedIn)"
+        <input
+          type="text"
+          id="urlInput"
+          placeholder="Paste a URL here (YouTube/LinkedIn/Discord/etc)"
           class="url-input"
         />
         <button id="generateBtn" class="generate-btn">Generate Deep Links</button>
-        <button id="openBtn" class="generate-btn hidden" style="background-color: #2ecc71;">Open App</button>
+        <button id="openBtn" class="generate-btn hidden" style="background-color: #2ecc71">
+          Open App
+        </button>
       </div>
-      
+
       <div id="outputSection" class="output-section hidden">
         <h2>Generated Deep Links</h2>
-        <button id="toggleDeepLinks" class="toggle-btn">
-          <span class="toggle-text">Show Deep Links</span>
-          <span class="toggle-icon">▼</span>
-        </button>
-        <div id="deepLinksContent" class="deep-links-content hidden">
+        <div id="deepLinksContent" class="deep-links-content">
           <pre id="jsonOutput" class="json-output"></pre>
         </div>
       </div>
     </div>
-    
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
-

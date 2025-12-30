@@ -34,9 +34,9 @@ openLink('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
 import { openLink } from 'universal-app-opener';
 
 openLink('https://www.linkedin.com/in/iamsaban/', {
-  fallbackToWeb: true,    // Fallback to web if app not installed (default: true)
-  fallbackDelay: 2500,   // Delay before fallback in ms (default: 2500)
-  openInNewTab: false    // Open web URL in new tab (default: false)
+  fallbackToWeb: true, // Fallback to web if app not installed (default: true)
+  fallbackDelay: 2500, // Delay before fallback in ms (default: 2500)
+  openInNewTab: false, // Open web URL in new tab (default: false)
 });
 ```
 
@@ -74,6 +74,7 @@ openLink('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
 Opens a URL in the appropriate app or browser. Automatically detects platform and handles deep linking.
 
 **Parameters:**
+
 - `url` (string): The web URL to open (YouTube or LinkedIn)
 - `options` (optional): Configuration object
   - `fallbackToWeb` (boolean): Fallback to web URL if app not installed (default: `true`)
@@ -81,6 +82,7 @@ Opens a URL in the appropriate app or browser. Automatically detects platform an
   - `openInNewTab` (boolean): Open web URL in new tab (default: `false`)
 
 **Example:**
+
 ```typescript
 openLink('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
 ```
@@ -90,27 +92,74 @@ openLink('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
 Converts a web URL into platform-specific deep links. Returns the deep link data without opening it.
 
 **Parameters:**
+
 - `url` (string): The web URL to convert (YouTube or LinkedIn)
 
 **Returns:**
+
 ```typescript
 interface DeepLinkResult {
-  webUrl: string;        // Original web URL
-  ios: string | null;     // iOS deep link (custom scheme)
+  webUrl: string; // Original web URL
+  ios: string | null; // iOS deep link (custom scheme)
   android: string | null; // Android deep link (intent URL)
   platform: 'youtube' | 'linkedin' | 'unknown';
 }
 ```
 
-**Supported Platforms:**
-- YouTube: `youtube.com/watch?v=*` and `youtu.be/*`
-- LinkedIn: `linkedin.com/in/*`
+### Supported Platforms
+
+#### YouTube
+
+- Videos
+
+#### LinkedIn
+
+- Profiles
+- Posts
+- Company Pages
+- Jobs
+
+#### Instagram
+
+- Profiles
+- Posts
+- Reels
+- IGTV Videos
+
+#### Facebook
+
+- General Facebook URLs (profiles, posts, pages, etc.)
+
+#### Reddit
+
+- Subreddits
+- User Profiles
+
+#### Spotify
+
+- Tracks
+- Artists
+- Albums
+- Playlists
+- Shows
+- Episodes
+- Audiobooks
+
+#### Threads
+
+- User Profiles
+
+#### WhatsApp
+
+- Chat Links (phone number)
+- Chat Links with Pre-filled Text
 
 ### `detectOS(): 'ios' | 'android' | 'desktop'`
 
 Detects the current operating system based on user agent.
 
 **Returns:**
+
 - `'ios'` - iPhone, iPad, or iPod
 - `'android'` - Android devices
 - `'desktop'` - Desktop browsers or unknown
@@ -133,6 +182,16 @@ const result = generateDeepLink('https://www.linkedin.com/in/iamsaban/');
 // result.android: 'intent://in/iamsaban#Intent;scheme=linkedin;package=com.linkedin.android;end'
 ```
 
+### Twitch
+
+```typescript
+const result = generateDeepLink(
+  'https://www.twitch.tv/directory/tags/80427d95-bb46-42d3-bf4d-408e9bdca49a',
+);
+// result.ios: 'twitch://directory/tags/80427d95-bb46-42d3-bf4d-408e9bdca49a'
+// result.android: 'intent://twitch.tv/directory/tags/80427d95-bb46-42d3-bf4d-408e9bdca49a#Intent;scheme=https;package=tv.twitch.android.app;S.browser_fallback_url=https://twitch.tv/login;end'
+```
+
 ### Unknown URL
 
 ```typescript
@@ -149,4 +208,3 @@ Try it out: [Live Demo](https://mdsaban.github.io/universal-app-opener/)
 ## License
 
 MIT
-

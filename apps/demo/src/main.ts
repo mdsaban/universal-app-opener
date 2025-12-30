@@ -5,17 +5,15 @@ const generateBtn = document.getElementById('generateBtn') as HTMLButtonElement;
 const openBtn = document.getElementById('openBtn') as HTMLButtonElement;
 const outputSection = document.getElementById('outputSection') as HTMLDivElement;
 const jsonOutput = document.getElementById('jsonOutput') as HTMLPreElement;
-const toggleDeepLinks = document.getElementById('toggleDeepLinks') as HTMLButtonElement;
-const deepLinksContent = document.getElementById('deepLinksContent') as HTMLDivElement;
-const exampleLinks = document.querySelectorAll('.example-link');
+const exampleLinks = document.querySelectorAll<HTMLAnchorElement>('.example-link');
 
 let currentResult: ReturnType<typeof generateDeepLink> | null = null;
 
-function handleLinkClick(url: string) {
+function handleLinkClick(url: string, openInNewTab: boolean) {
   const result = generateDeepLink(url);
   currentResult = result;
   displayResult(result);
-  openLink(url, { fallbackToWeb: true, fallbackDelay: 2500 });
+  openLink(url, { fallbackToWeb: true, fallbackDelay: 2500, openInNewTab });
 }
 
 function displayResult(result: ReturnType<typeof generateDeepLink>) {
@@ -23,24 +21,37 @@ function displayResult(result: ReturnType<typeof generateDeepLink>) {
   outputSection.classList.remove('hidden');
 }
 
-exampleLinks.forEach(link => {
+function getLinkDetails(link: HTMLAnchorElement, e: MouseEvent) {
+  e.preventDefault();
+  const isModifierPressed = e.ctrlKey || e.metaKey || e.button === 1;
+  const url = link.getAttribute('data-url');
+  const target = link.getAttribute('target');
+  if (url) {
+    handleLinkClick(url, isModifierPressed || target === '_blank');
+  }
+}
+
+exampleLinks.forEach((link) => {
   link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const url = link.getAttribute('data-url');
-    if (url) {
-      handleLinkClick(url);
+    getLinkDetails(link, e);
+  });
+
+  // To get mouse wheel click
+  link.addEventListener('auxclick', (e) => {
+    if (e.button === 1) {
+      getLinkDetails(link, e);
     }
   });
 });
 
 generateBtn.addEventListener('click', () => {
   const url = urlInput.value.trim();
-  
+
   if (!url) {
     alert('Please enter a URL');
     return;
   }
-  
+
   const result = generateDeepLink(url);
   currentResult = result;
   displayResult(result);
@@ -54,24 +65,8 @@ openBtn.addEventListener('click', () => {
   }
 });
 
-toggleDeepLinks.addEventListener('click', () => {
-  const isHidden = deepLinksContent.classList.contains('hidden');
-  deepLinksContent.classList.toggle('hidden');
-  const toggleText = toggleDeepLinks.querySelector('.toggle-text') as HTMLElement;
-  const toggleIcon = toggleDeepLinks.querySelector('.toggle-icon') as HTMLElement;
-  
-  if (isHidden) {
-    toggleText.textContent = 'Hide Deep Links';
-    toggleIcon.textContent = '▲';
-  } else {
-    toggleText.textContent = 'Show Deep Links';
-    toggleIcon.textContent = '▼';
-  }
-});
-
 urlInput.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     generateBtn.click();
   }
 });
-
