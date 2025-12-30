@@ -12,6 +12,7 @@ import {
   youtubeHandler,
 } from './platforms';
 import { DeepLinkResult } from './types';
+import { normalizeUrl } from './utils/normalizeUrl';
 
 export * from './types';
 
@@ -28,7 +29,7 @@ const handlers = [
   youtubeHandler,
 ];
 export function generateDeepLink(url: string): DeepLinkResult {
-  const webUrl = url.trim();
+  const webUrl = normalizeUrl(url);
 
   for (const handler of handlers) {
     const match = handler.match(webUrl);
