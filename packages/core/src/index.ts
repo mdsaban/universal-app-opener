@@ -10,6 +10,7 @@ import {
   unknownHandler,
   whatsappHandler,
   youtubeHandler,
+  telegramHandler,
 } from './platforms';
 import { DeepLinkResult } from './types';
 
@@ -26,6 +27,7 @@ const handlers = [
   twitchHandler,
   whatsappHandler,
   youtubeHandler,
+  telegramHandler,
 ];
 export function generateDeepLink(url: string): DeepLinkResult {
   const webUrl = url.trim();
