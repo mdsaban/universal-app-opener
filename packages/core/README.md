@@ -182,6 +182,16 @@ const result = generateDeepLink('https://www.linkedin.com/in/iamsaban/');
 // result.android: 'intent://in/iamsaban#Intent;scheme=linkedin;package=com.linkedin.android;end'
 ```
 
+### Twitch
+
+```typescript
+const result = generateDeepLink(
+  'https://www.twitch.tv/directory/tags/80427d95-bb46-42d3-bf4d-408e9bdca49a',
+);
+// result.ios: 'twitch://directory/tags/80427d95-bb46-42d3-bf4d-408e9bdca49a'
+// result.android: 'intent://twitch.tv/directory/tags/80427d95-bb46-42d3-bf4d-408e9bdca49a#Intent;scheme=https;package=tv.twitch.android.app;S.browser_fallback_url=https://twitch.tv/login;end'
+```
+
 ### Unknown URL
 
 ```typescript

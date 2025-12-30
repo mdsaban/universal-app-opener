@@ -88,12 +88,6 @@ Try it out: **[Live Demo](https://mdsaban.github.io/universal-app-opener/)**
 
 For full usage instructions, API details, and advanced examples, see the [Core Package README](./packages/core/README.md).
 
-## Contributing
-
-If you're interested in contributing in the beta phase, you can join our private Discord community: [Discord Invite](https://hub.mdsaban.com/?ref=secret)
-
-For contribution guidelines, development workflow, and instructions to add new platforms, see [CONTRIBUTING.md](./packages/core/CONTRIBUTING.md).
-
 ## Goal
 
 The goal of this project is to provide a lightweight, zero-dependency library that can detect platform-specific deep links from common web URLs. This enables web applications to seamlessly redirect users to native mobile apps when available, improving user experience across platforms.
@@ -138,3 +132,13 @@ To build all packages:
 ```bash
 pnpm build
 ```
+
+## Contributing
+
+If you're interested in contributing in the beta phase, you can join our private Discord community: [Discord Invite](https://hub.mdsaban.com/?ref=secret)
+
+For contribution guidelines, development workflow, and instructions to add new platforms, see [CONTRIBUTING.md](./packages/core/CONTRIBUTING.md).
+
+<a href="https://github.com/mdsaban/universal-app-opener/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=mdsaban/universal-app-opener" />
+</a>
