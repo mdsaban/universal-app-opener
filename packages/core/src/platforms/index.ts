@@ -7,6 +7,7 @@ import { redditHandler } from './reddit';
 import { spotifyHandler } from './spotify';
 import { threadsHandler } from './threads';
 import { twitchHandler } from './twitch';
+import { twitterHandler } from './twitter';
 import { unknownHandler } from './unknown';
 import { whatsappHandler } from './whatsapp';
 import { youtubeHandler } from './youtube';
@@ -21,6 +22,7 @@ export {
   spotifyHandler,
   threadsHandler,
   twitchHandler,
+  twitterHandler,
   unknownHandler,
   whatsappHandler,
   youtubeHandler,

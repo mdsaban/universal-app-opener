@@ -129,6 +129,7 @@ h1 {
 .instagram-link:hover { border-color: rgba(225, 48, 108, 0.3); }
 .discord-link:hover { border-color: rgba(88, 101, 242, 0.3); }
 .facebook-link:hover { border-color: rgba(24, 119, 242, 0.3); }
+.twitter-link:hover { border-color: rgba(29, 161, 242, 0.3); }
 
 .divider {
   text-align: center;
