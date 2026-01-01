@@ -33,7 +33,6 @@ const handlers: DeepLinkHandler[] = [
 const handlerMap = new Map<string, DeepLinkHandler>();
 
 handlers.forEach((handler) => {
-  console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
   handler.hostnames.forEach((hostname) => {
     handlerMap.set(hostname, handler);
   });
