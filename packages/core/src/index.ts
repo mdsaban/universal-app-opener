@@ -10,30 +10,55 @@ import {
   unknownHandler,
   whatsappHandler,
   youtubeHandler,
+  redditHandler,
 } from './platforms';
-import { DeepLinkResult } from './types';
+import { DeepLinkHandler, DeepLinkResult } from './types';
 
 export * from './types';
 
-const handlers = [
+const handlers: DeepLinkHandler[] = [
+  youtubeHandler,
+  linkedinHandler,
+  instagramHandler,
   discordHandler,
   facebookHandler,
-  githubHandler,
-  instagramHandler,
-  linkedinHandler,
   spotifyHandler,
-  threadsHandler,
-  twitchHandler,
   whatsappHandler,
-  youtubeHandler,
+  threadsHandler,
+  githubHandler,
+  twitchHandler,
+  redditHandler,
 ];
+
+const handlerMap = new Map<string, DeepLinkHandler>();
+
+handlers.forEach((handler) => {
+  console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+  handler.hostnames.forEach((hostname) => {
+    handlerMap.set(hostname, handler);
+  });
+});
+
+function getHostname(url: string): string | null {
+  try {
+    const urlWithProtocol = url.startsWith('http') ? url : `https://${url}`;
+    return new URL(urlWithProtocol).hostname;
+  } catch (e) {
+    return null;
+  }
+}
+
 export function generateDeepLink(url: string): DeepLinkResult {
   const webUrl = url.trim();
+  const hostname = getHostname(webUrl);
 
-  for (const handler of handlers) {
-    const match = handler.match(webUrl);
-    if (match) {
-      return handler.build(webUrl, match);
+  if (hostname) {
+    const handler = handlerMap.get(hostname);
+    if (handler) {
+      const match = handler.match(webUrl);
+      if (match) {
+        return handler.build(webUrl, match);
+      }
     }
   }
 

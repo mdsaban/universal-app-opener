@@ -20,6 +20,7 @@ const getUrlWithoutProtocol = (url: string) =>
   url.replace(/^https?:\/\//, '').replace(/^www\./, '');
 
 export const twitchHandler: DeepLinkHandler = {
+  hostnames: ['twitch.tv', 'www.twitch.tv', 'm.twitch.tv', 'clips.twitch.tv'],
   match: (url) => {
     const urlWithoutProtocol = getUrlWithoutProtocol(url);
 

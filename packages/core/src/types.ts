@@ -26,6 +26,12 @@ export interface DeepLinkResult {
  */
 export interface DeepLinkHandler {
   /**
+   * List of hostnames matched by this handler.
+   * used for O(1) lookup.
+   */
+  hostnames: string[];
+
+  /**
    * Attempts to match a given web URL against supported patterns.
    *
    * @param url - The input web URL to evaluate
