@@ -65,6 +65,8 @@ export interface OpenLinkOptions {
 }
 
 export function openLink(url: string, options: OpenLinkOptions = {}): void {
+  if (typeof window === 'undefined') return;
+
   const { fallbackToWeb = true, fallbackDelay = 2500, openInNewTab = false } = options;
 
   const os = detectOS();
@@ -82,7 +84,15 @@ export function openLink(url: string, options: OpenLinkOptions = {}): void {
     window.location.href = deepLink;
 
     if (fallbackToWeb) {
+      const start = Date.now();
       setTimeout(() => {
+        const elapsed = Date.now() - start;
+        const isHidden = typeof document !== 'undefined' && document.hidden;
+
+        if (isHidden || elapsed > fallbackDelay + 1000) {
+          return;
+        }
+
         if (openInNewTab) {
           window.open(result.webUrl, '_blank');
         } else {
