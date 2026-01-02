@@ -10,6 +10,7 @@ export type Platform =
   | 'discord'
   | 'github'
   | 'twitch'
+  | 'jioHotstar'
   | 'unknown';
 
 export interface DeepLinkResult {
