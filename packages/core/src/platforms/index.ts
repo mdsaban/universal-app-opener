@@ -5,6 +5,7 @@ import { instagramHandler } from './instagram';
 import { linkedinHandler } from './linkedin';
 import { redditHandler } from './reddit';
 import { spotifyHandler } from './spotify';
+import { substackHandler } from './substack';
 import { threadsHandler } from './threads';
 import { twitchHandler } from './twitch';
 import { unknownHandler } from './unknown';
@@ -19,6 +20,7 @@ export {
   linkedinHandler,
   redditHandler,
   spotifyHandler,
+  substackHandler,
   threadsHandler,
   twitchHandler,
   unknownHandler,
