@@ -1,6 +1,7 @@
 import { DeepLinkHandler } from '../types';
 
 export const facebookHandler: DeepLinkHandler = {
+  hostnames: ['facebook.com'],
   match: (url) => url.match(/^https?:\/\/(?:www\.|m\.)?facebook\.com\/(.*)$/),
 
   build: (webUrl, match) => {
