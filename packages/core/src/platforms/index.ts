@@ -1,7 +1,9 @@
+import { DeepLinkHandler } from '../types';
 import { discordHandler } from './discord';
 import { facebookHandler } from './facebook';
 import { githubHandler } from './github';
 import { instagramHandler } from './instagram';
+import { jioHotstarHandler } from './jioHotstar';
 import { linkedinHandler } from './linkedin';
 import { redditHandler } from './reddit';
 import { spotifyHandler } from './spotify';
@@ -15,6 +17,7 @@ export {
   discordHandler,
   facebookHandler,
   githubHandler,
+  jioHotstarHandler,
   instagramHandler,
   linkedinHandler,
   redditHandler,
@@ -25,3 +28,18 @@ export {
   whatsappHandler,
   youtubeHandler,
 };
+
+export const handlers: DeepLinkHandler[] = [
+  discordHandler,
+  facebookHandler,
+  githubHandler,
+  jioHotstarHandler,
+  instagramHandler,
+  linkedinHandler,
+  redditHandler,
+  spotifyHandler,
+  threadsHandler,
+  twitchHandler,
+  whatsappHandler,
+  youtubeHandler,
+];

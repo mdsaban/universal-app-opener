@@ -189,7 +189,15 @@ const result = generateDeepLink(
   'https://www.twitch.tv/directory/tags/80427d95-bb46-42d3-bf4d-408e9bdca49a',
 );
 // result.ios: 'twitch://directory/tags/80427d95-bb46-42d3-bf4d-408e9bdca49a'
-// result.android: 'intent://twitch.tv/directory/tags/80427d95-bb46-42d3-bf4d-408e9bdca49a#Intent;scheme=https;package=tv.twitch.android.app;S.browser_fallback_url=https://twitch.tv/login;end'
+// result.android: 'intent://twitch.tv/directory/tags/80427d95-bb46-42d3-bf4d-408e9bdca49a#Intent;scheme=https;package=tv.twitch.android.app;end'
+```
+
+### Jio Hotstar
+
+```typescript
+const result = generateDeepLink('https://www.hotstar.com/in/movies/sholay/1271513578/watch');
+// result.ios: 'hotstar://1271513578'
+// result.android: 'intent://1271513578#Intent;scheme=hotstar;package=in.startv.hotstar;end'
 ```
 
 ### Unknown URL

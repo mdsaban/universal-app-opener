@@ -1,0 +1,30 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+
+    <linearGradient id="starGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb" /> <stop offset="40%" stop-color="#fcd34d" /> <stop offset="100%" stop-color="#78350f" /> </linearGradient>
+
+    <linearGradient id="ridgeHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1"/>
+    </linearGradient>
+    
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="120" ry="120" fill="url(#bgGradient)" />
+
+  <g transform="translate(256, 256)" filter="url(#shadow)">
+    <path fill="url(#starGold)" stroke="#b45309" stroke-width="1.5"
+          d="M 0,-80      L 20,-30    L 170,-160   L 45,-10    L 110,50     L 30,30     L 60,110     L 10,50     L -20,130    L -20,40    L -100,80    L -40,10    L -120,-20   L -30,-30   L -70,-90    L -15,-50   Z" />
+
+    <path fill="url(#ridgeHighlight)" 
+          d="M 0,0 L 0,-80 L 20,-30 Z        M 0,0 L 170,-160 L 20,-30 Z     M 0,0 L 170,-160 L 45,-10 Z     M 0,0 L 110,50 L 45,-10 Z       M 0,0 L 60,110 L 30,30 Z        M 0,0 L -20,130 L 10,50 Z       M 0,0 L -100,80 L -20,40 Z      M 0,0 L -120,-20 L -40,10 Z     M 0,0 L -70,-90 L -30,-30 Z" /> </g>
+</svg>

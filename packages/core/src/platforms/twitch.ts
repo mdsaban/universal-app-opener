@@ -1,4 +1,5 @@
 import { DeepLinkHandler } from '../types';
+import { getUrlWithoutProtocol } from '../utils';
 
 const PATTERNS: Array<[type: string, regex: RegExp]> = [
   ['login', /^twitch\.tv\/login\/?$/],
@@ -15,9 +16,6 @@ const PATTERNS: Array<[type: string, regex: RegExp]> = [
     /^(?:(?:clips\.twitch\.tv\/)|(?:twitch\.tv\/[a-zA-Z0-9_]{4,25}\/clip\/))([A-Za-z0-9_-]+)\/?$/,
   ],
 ];
-
-const getUrlWithoutProtocol = (url: string) =>
-  url.replace(/^https?:\/\//, '').replace(/^www\./, '');
 
 export const twitchHandler: DeepLinkHandler = {
   match: (url) => {
@@ -49,7 +47,7 @@ export const twitchHandler: DeepLinkHandler = {
     return {
       webUrl,
       ios: iosDeepLink,
-      android: `intent://${matchUrl}#Intent;scheme=https;package=tv.twitch.android.app;S.browser_fallback_url=${encodeURIComponent(webUrl)};end`,
+      android: `intent://${matchUrl}#Intent;scheme=https;package=tv.twitch.android.app;end`,
       platform: 'twitch',
     };
   },
