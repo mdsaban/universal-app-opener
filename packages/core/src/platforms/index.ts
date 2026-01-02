@@ -10,6 +10,7 @@ import { twitchHandler } from './twitch';
 import { unknownHandler } from './unknown';
 import { whatsappHandler } from './whatsapp';
 import { youtubeHandler } from './youtube';
+import { snapchatHandler } from './snapchat';
 
 export {
   discordHandler,
@@ -24,4 +25,5 @@ export {
   unknownHandler,
   whatsappHandler,
   youtubeHandler,
+  snapchatHandler,
 };
