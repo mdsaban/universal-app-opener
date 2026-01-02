@@ -196,8 +196,8 @@ const result = generateDeepLink(
 
 ```typescript
 const result = generateDeepLink('https://www.hotstar.com/in/movies/sholay/1271513578/watch');
-// result.ios: 'hotstar://content/1271513578'
-// result.android: 'intent://content/1271513578#Intent;scheme=hotstar;package=in.startv.hotstar;end'
+// result.ios: 'hotstar://1271513578'
+// result.android: 'intent://1271513578#Intent;scheme=hotstar;package=in.startv.hotstar;end'
 ```
 
 ### Unknown URL
