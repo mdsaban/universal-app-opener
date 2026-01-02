@@ -1,7 +1,7 @@
 import { DeepLinkHandler } from '../types';
 
 export const threadsHandler: DeepLinkHandler = {
-  hostnames: ['threads.net', 'threads.com'],
+  hostnames: ['threads.net'],
   match: (url) => url.match(/^https?:\/\/(?:www\.)?threads\.net\/@([^/?]+)/),
 
   build: (webUrl, match) => {

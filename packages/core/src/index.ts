@@ -34,6 +34,9 @@ const handlerMap = new Map<string, DeepLinkHandler>();
 
 handlers.forEach((handler) => {
   handler.hostnames.forEach((hostname) => {
+    if (handlerMap.has(hostname)) {
+      console.warn(`Hostname collision: "${hostname}" claimed by multiple handlers`);
+    }
     handlerMap.set(hostname, handler);
   });
 });
