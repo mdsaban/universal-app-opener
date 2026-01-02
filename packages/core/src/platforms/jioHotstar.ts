@@ -4,7 +4,7 @@ import { getUrlWithoutProtocol } from '../utils';
 export const jioHotstarHandler: DeepLinkHandler = {
   match: (url) =>
     getUrlWithoutProtocol(url).match(
-      /^(?:hotstar\.com|jiohotstar\.com|startv\.hotstar\.com)\/(?:in\/)?(?:shows|movies|live|tv|sport|play)(?:\/[a-zA-Z0-9_-]+)?\/([0-9]+)(?:\/(?:[a-zA-Z0-9_-]+)\/([0-9]+))?(?:\/watch)?/,
+      /^(?:hotstar\.com|jiohotstar\.com|startv\.hotstar\.com)\/(?:in\/)?(?:shows|movies|live|tv|sport|play)(?:\/[a-zA-Z0-9_-]+)?\/([a-zA-Z0-9_-]+)(?:\/(?:[a-zA-Z0-9_-]+)\/([a-zA-Z0-9_-]+))?(?:\/watch)?/,
     ),
 
   build: (webUrl, match) => {
