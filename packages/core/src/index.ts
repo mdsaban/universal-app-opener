@@ -27,6 +27,7 @@ const handlers: DeepLinkHandler[] = [
   twitchHandler,
   whatsappHandler,
   youtubeHandler,
+  redditHandler,
 ];
 
 const handlerMap = new Map<string, DeepLinkHandler>();
