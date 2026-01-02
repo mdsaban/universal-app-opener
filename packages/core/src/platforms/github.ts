@@ -1,7 +1,7 @@
 import { DeepLinkHandler, Platform } from '../types';
 
 export const githubHandler: DeepLinkHandler = {
-  hostnames: ['github.com', 'www.github.com'],
+  hostnames: ['github.com'],
   match: (url) =>
     url.match(
       /^https?:\/\/(?:www\.)?github\.com\/([^\/?#]+)\/?([^\/?#]+)?\/?([^\/?#]+)?\/?([^\/?#]+)?/,

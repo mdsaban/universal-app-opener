@@ -1,7 +1,7 @@
 import { DeepLinkHandler } from '../types';
 
 export const instagramHandler: DeepLinkHandler = {
-  hostnames: ['instagram.com', 'www.instagram.com'],
+  hostnames: ['instagram.com'],
   match: (url) => url.match(/instagram\.com\/(?:(p|reel|tv)\/)?([^/?]+)/),
 
   build: (webUrl, match) => {

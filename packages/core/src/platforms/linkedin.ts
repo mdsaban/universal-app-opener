@@ -44,7 +44,7 @@ const builders: Record<string, (id: string, webUrl: string) => DeepLinkResult> =
  * generates corresponding deeplink metadata based on url types
  */
 export const linkedinHandler: DeepLinkHandler = {
-  hostnames: ['linkedin.com', 'www.linkedin.com'],
+  hostnames: ['linkedin.com'],
   match: (url) => {
     for (const [type, regex] of patterns) {
       const matchResult = url.match(regex);

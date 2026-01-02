@@ -1,7 +1,7 @@
 import { DeepLinkHandler } from '../types';
 
 export const discordHandler: DeepLinkHandler = {
-  hostnames: ['discord.com', 'www.discord.com', 'discord.gg'],
+  hostnames: ['discord.com', 'discord.gg'],
   match: (url) => {
     return url.match(
       /discord\.(?:com\/channels\/([^/]+)\/([^/?#]+)|gg\/([^/?#]+)|com\/invite\/([^/?#]+))/,

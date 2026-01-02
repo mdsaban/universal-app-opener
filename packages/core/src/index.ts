@@ -17,17 +17,16 @@ import { DeepLinkHandler, DeepLinkResult } from './types';
 export * from './types';
 
 const handlers: DeepLinkHandler[] = [
-  youtubeHandler,
-  linkedinHandler,
-  instagramHandler,
   discordHandler,
   facebookHandler,
-  spotifyHandler,
-  whatsappHandler,
-  threadsHandler,
   githubHandler,
+  instagramHandler,
+  linkedinHandler,
+  spotifyHandler,
+  threadsHandler,
   twitchHandler,
-  redditHandler,
+  whatsappHandler,
+  youtubeHandler,
 ];
 
 const handlerMap = new Map<string, DeepLinkHandler>();
@@ -41,7 +40,28 @@ handlers.forEach((handler) => {
 function getHostname(url: string): string | null {
   try {
     const urlWithProtocol = url.startsWith('http') ? url : `https://${url}`;
-    return new URL(urlWithProtocol).hostname;
+    const hostname = new URL(urlWithProtocol).hostname;
+
+    // naive root domain extraction (last two parts)
+    const parts = hostname.split('.');
+
+    // Handle second-level TLDs (e.g. domain.co.uk)
+    // Heuristic: TLD is 2 chars (e.g. uk, br) AND SLD is short (<= 4 chars, e.g. co, com, org, ac).
+    // This avoids trapping domains like m.twitch.tv where 'twitch' > 4.
+    if (parts.length >= 3) {
+      const tld = parts[parts.length - 1];
+      const sld = parts[parts.length - 2];
+
+      if (tld.length === 2 && sld.length <= 4) {
+        return parts.slice(-3).join('.');
+      }
+    }
+
+    // Default: take last 2 parts (e.g. youtube.com, youtu.be)
+    if (parts.length >= 2) {
+      return parts.slice(-2).join('.');
+    }
+    return hostname;
   } catch (e) {
     return null;
   }
