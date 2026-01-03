@@ -6,8 +6,7 @@ export const twitterHandler: DeepLinkHandler = {
   build: (webUrl, match) => {
     const username = match[1];
     
-    // Skip if it's a known non-profile path
-    if (['i', 'home', 'explore', 'notifications', 'messages', 'search'].includes(username.toLowerCase())) {
+  if (['i', 'home', 'explore', 'notifications', 'messages', 'search', 'settings', 'compose', 'intent', 'login'].includes(username.toLowerCase())) {
       return null;
     }
     
