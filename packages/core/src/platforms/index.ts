@@ -9,8 +9,8 @@ import { pinterestHandler } from './pinterest';
 import { redditHandler } from './reddit';
 import { snapchatHandler } from './snapchat';
 import { spotifyHandler } from './spotify';
-import { telegramHandler } from './telegram';
 import { substackHandler } from './substack';
+import { telegramHandler } from './telegram';
 import { threadsHandler } from './threads';
 import { twitchHandler } from './twitch';
 import { unknownHandler } from './unknown';
@@ -29,12 +29,14 @@ export {
   redditHandler,
   snapchatHandler,
   spotifyHandler,
+  substackHandler,
   telegramHandler,
   threadsHandler,
   twitchHandler,
+  unknownHandler,
   whatsappHandler,
   youtubeHandler,
-  unknownHandler
+  zoomHandler
 };
 
 export const handlers: DeepLinkHandler[] = [
@@ -48,9 +50,11 @@ export const handlers: DeepLinkHandler[] = [
   redditHandler,
   snapchatHandler,
   spotifyHandler,
+  substackHandler,
   telegramHandler,
   threadsHandler,
   twitchHandler,
   whatsappHandler,
   youtubeHandler,
+  zoomHandler,
 ];
