@@ -3,6 +3,7 @@ import { facebookHandler } from './facebook';
 import { githubHandler } from './github';
 import { instagramHandler } from './instagram';
 import { linkedinHandler } from './linkedin';
+import { pinterestHandler } from './pinterest';
 import { redditHandler } from './reddit';
 import { spotifyHandler } from './spotify';
 import { threadsHandler } from './threads';
@@ -13,17 +14,18 @@ import { youtubeHandler } from './youtube';
 import { telegramHandler } from "./telegram";
 
 export {
-  discordHandler,
-  facebookHandler,
-  githubHandler,
-  instagramHandler,
   linkedinHandler,
-  redditHandler,
+  youtubeHandler,
+  instagramHandler,
   spotifyHandler,
   threadsHandler,
+  whatsappHandler,
+  facebookHandler,
+  redditHandler,
+  discordHandler,
+  githubHandler,
+  pinterestHandler,
   twitchHandler,
   unknownHandler,
-  whatsappHandler,
-  youtubeHandler,
   telegramHandler,
 };

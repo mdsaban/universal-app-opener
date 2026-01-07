@@ -9,6 +9,7 @@ export type Platform =
   | 'threads'
   | 'discord'
   | 'github'
+  | 'pinterest'
   | 'twitch'
   | 'telegram'
   | 'unknown';
