@@ -3,6 +3,7 @@ import { facebookHandler } from './facebook';
 import { githubHandler } from './github';
 import { instagramHandler } from './instagram';
 import { linkedinHandler } from './linkedin';
+import { pinterestHandler } from './pinterest';
 import { redditHandler } from './reddit';
 import { spotifyHandler } from './spotify';
 import { substackHandler } from './substack';
@@ -11,19 +12,24 @@ import { twitchHandler } from './twitch';
 import { unknownHandler } from './unknown';
 import { whatsappHandler } from './whatsapp';
 import { youtubeHandler } from './youtube';
+import { snapchatHandler } from './snapchat';
+import { telegramHandler } from './telegram';
 
 export {
-  discordHandler,
-  facebookHandler,
-  githubHandler,
-  instagramHandler,
   linkedinHandler,
-  redditHandler,
+  youtubeHandler,
+  instagramHandler,
   spotifyHandler,
   substackHandler,
   threadsHandler,
-  twitchHandler,
-  unknownHandler,
   whatsappHandler,
-  youtubeHandler,
+  facebookHandler,
+  redditHandler,
+  discordHandler,
+  githubHandler,
+  pinterestHandler,
+  twitchHandler,
+  snapchatHandler,
+  telegramHandler,
+  unknownHandler,
 };
