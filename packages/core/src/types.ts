@@ -13,6 +13,7 @@ export type Platform =
   | 'twitch'
   | 'snapchat'
   | 'telegram'
+  | 'jiohotstar'
   | 'zoom'
   | 'substack'
   | 'unknown';

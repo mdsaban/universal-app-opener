@@ -1,45 +1,9 @@
-import {
-  linkedinHandler,
-  youtubeHandler,
-  instagramHandler,
-  spotifyHandler,
-  substackHandler,
-  threadsHandler,
-  whatsappHandler,
-  facebookHandler,
-  redditHandler,
-  discordHandler,
-  githubHandler,
-  pinterestHandler,
-  twitchHandler,
-  snapchatHandler,
-  telegramHandler,
-  unknownHandler,
-  zoomHandler,
-} from './platforms';
+import { handlers, unknownHandler } from './platforms';
 import { DeepLinkResult } from './types';
 import { normalizeUrl } from './utils/normalizeUrl';
 
 export * from './types';
 
-const handlers = [
-  linkedinHandler,
-  youtubeHandler,
-  instagramHandler,
-  spotifyHandler,
-  substackHandler,
-  threadsHandler,
-  whatsappHandler,
-  snapchatHandler,
-  facebookHandler,
-  redditHandler,
-  discordHandler,
-  githubHandler,
-  pinterestHandler,
-  twitchHandler,
-  telegramHandler,
-  zoomHandler,
-];
 export function generateDeepLink(url: string): DeepLinkResult {
   const webUrl = normalizeUrl(url);
 

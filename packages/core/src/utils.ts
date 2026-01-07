@@ -32,3 +32,6 @@ export function parseTimestampToSeconds(timestamp: string): number {
 
   return hours * 3600 + minutes * 60 + seconds;
 }
+
+export const getUrlWithoutProtocol = (url: string) =>
+  url.replace(/^https?:\/\//, '').replace(/^www\./, '');
