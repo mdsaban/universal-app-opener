@@ -13,6 +13,7 @@ export type Platform =
   | 'twitch'
   | 'snapchat'
   | 'telegram'
+  | 'jioHotstar'
   | 'unknown';
 
 export interface DeepLinkResult {
