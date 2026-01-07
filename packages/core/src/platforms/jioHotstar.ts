@@ -5,6 +5,8 @@ import { getUrlWithoutProtocol } from '../utils';
 // - hotstar.com/in/movies/{movie-name}/{movie-id}
 // - hotstar.com/shows/{show-name}/{show-id}
 // - hotstar.com/shows/{show-name}/{show-id}/episode/{episode-id}
+// - hotstar.com/sports/{sport-name}/{video-name}/{video-id}
+// - hotstar.com/sports/{sport-name}/{video-name}/{video-id}/video/live/watch
 // - jiohotstar.com/play/{id}
 const PATTERNS: Array<[type: string, regex: RegExp]> = [
   [
