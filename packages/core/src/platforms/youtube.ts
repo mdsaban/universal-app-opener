@@ -29,6 +29,7 @@ function extractTimestamp(url: string): string | null {
 }
 
 export const youtubeHandler: DeepLinkHandler = {
+  hostnames: ['youtube.com', 'youtu.be'],
   match: (url) => {
     const videoId = extractYouTubeVideoId(url);
     if (!videoId) return null;

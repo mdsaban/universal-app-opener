@@ -14,6 +14,7 @@ import { DeepLinkHandler } from '../types';
  * We return the HTTPS URL for both iOS and Android, which the app will handle.
  */
 export const substackHandler: DeepLinkHandler = {
+  hostnames: ['substack.com'],
   match: (url) => {
     // Match *.substack.com URLs and capture the subdomain and optional path
     return url.match(/^https?:\/\/([a-z0-9-]+)\.substack\.com(\/(?:p\/[^/?#]+|about|archive)?)?/i);

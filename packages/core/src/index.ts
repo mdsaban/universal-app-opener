@@ -17,12 +17,12 @@ import {
   unknownHandler,
   zoomHandler,
 } from './platforms';
-import { DeepLinkResult } from './types';
+import { DeepLinkHandler, DeepLinkResult } from './types';
 import { normalizeUrl } from './utils/normalizeUrl';
 
 export * from './types';
 
-const handlers = [
+const handlers: DeepLinkHandler[] = [
   linkedinHandler,
   youtubeHandler,
   instagramHandler,
@@ -40,13 +40,59 @@ const handlers = [
   telegramHandler,
   zoomHandler,
 ];
+
+const handlerMap = new Map<string, DeepLinkHandler>();
+
+handlers.forEach((handler) => {
+  handler.hostnames.forEach((hostname) => {
+    if (handlerMap.has(hostname)) {
+      console.warn(`Hostname collision: "${hostname}" claimed by multiple handlers`);
+    }
+    handlerMap.set(hostname, handler);
+  });
+});
+
+function getHostname(url: string): string | null {
+  try {
+    const urlWithProtocol = url.startsWith('http') ? url : `https://${url}`;
+    const hostname = new URL(urlWithProtocol).hostname;
+
+    // naive root domain extraction (last two parts)
+    const parts = hostname.split('.');
+
+    // Handle second-level TLDs (e.g. domain.co.uk)
+    // Heuristic: TLD is 2 chars (e.g. uk, br) AND SLD is short (<= 4 chars, e.g. co, com, org, ac).
+    // This avoids trapping domains like m.twitch.tv where 'twitch' > 4.
+    if (parts.length >= 3) {
+      const tld = parts[parts.length - 1];
+      const sld = parts[parts.length - 2];
+
+      if (tld.length === 2 && sld.length <= 4) {
+        return parts.slice(-3).join('.');
+      }
+    }
+
+    // Default: take last 2 parts (e.g. youtube.com, youtu.be)
+    if (parts.length >= 2) {
+      return parts.slice(-2).join('.');
+    }
+    return hostname;
+  } catch (e) {
+    return null;
+  }
+}
+
 export function generateDeepLink(url: string): DeepLinkResult {
   const webUrl = normalizeUrl(url);
+  const hostname = getHostname(webUrl);
 
-  for (const handler of handlers) {
-    const match = handler.match(webUrl);
-    if (match) {
-      return handler.build(webUrl, match);
+  if (hostname) {
+    const handler = handlerMap.get(hostname);
+    if (handler) {
+      const match = handler.match(webUrl);
+      if (match) {
+        return handler.build(webUrl, match);
+      }
     }
   }
 

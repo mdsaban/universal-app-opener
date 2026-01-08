@@ -1,6 +1,7 @@
 import { DeepLinkHandler } from '../types';
 
 export const whatsappHandler: DeepLinkHandler = {
+  hostnames: ['wa.me'],
   match: (url) => url.match(/^(?:https?:\/\/)?(?:www\.)?wa\.me\/\+?(\d+)(?:\?text=([^&]+))?$/),
 
   build: (webUrl, match) => {

@@ -64,6 +64,7 @@ const builders: Record<PinterestType, (match: RegExpMatchArray, webUrl: string) 
  * Pinterest deeplink handler
  */
 export const pinterestHandler: DeepLinkHandler = {
+  hostnames: ['pinterest.com'],
   match: (url) => {
     for (const [type, regex] of patterns) {
       const matchResult = url.match(regex);

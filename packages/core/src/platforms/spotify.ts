@@ -1,6 +1,7 @@
 import { DeepLinkHandler } from '../types';
 
 export const spotifyHandler: DeepLinkHandler = {
+  hostnames: ['spotify.com'],
   match: (url) =>
     url.match(
       /^https?:\/\/open\.spotify\.com\/(track|artist|album|playlist|show|episode|audiobook)\/([^/?#]+)/,

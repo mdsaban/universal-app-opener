@@ -15,11 +15,12 @@ import { DeepLinkHandler } from '../types';
  * - Android: intent://zoom.us/join?confno=<meeting_id>&pwd=<password>#Intent;scheme=zoomus;package=us.zoom.videomeetings;end
  */
 export const zoomHandler: DeepLinkHandler = {
+  hostnames: ['zoom.us', 'zoom.com'],
   match: (url) => {
     // Match zoom.us/[js]/<meeting_id> or *.zoom.us/[js]/<meeting_id>
     // Only capture the meeting ID here, password is extracted separately
     // Added 'i' flag for case-insensitive subdomain matching
-    return url.match(/^https?:\/\/(?:[a-z0-9-]+\.)?zoom\.us\/[js]\/(\d+)/i);
+    return url.match(/^https?:\/\/(?:[a-z0-9-]+\.)?zoom\.(?:us|com)\/[js]\/(\d+)/i);
   },
 
   build: (webUrl, match) => {

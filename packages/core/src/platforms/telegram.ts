@@ -1,6 +1,7 @@
 import { DeepLinkHandler } from '../types';
 
 export const telegramHandler: DeepLinkHandler = {
+  hostnames: ['telegram.me', 'telegram.com', 't.me'],
   match: (url) => url.match(/(?:^|\/\/)(?:www\.)?(?:t\.me|telegram\.me)\/([^/?]+)(?:\/(\d+))?/),
 
   build: (webUrl, match) => {

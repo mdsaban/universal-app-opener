@@ -1,6 +1,7 @@
 import { DeepLinkHandler } from '../types';
 
 export const snapchatHandler: DeepLinkHandler = {
+  hostnames: ['snapchat.com'],
   match: (url) => url.match(/^https?:\/\/(?:www\.)?snapchat\.com\/add\/([^/?#]+)/),
 
   build: (webUrl, match) => {
