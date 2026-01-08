@@ -20,7 +20,7 @@ export const zoomHandler: DeepLinkHandler = {
     // Match zoom.us/[js]/<meeting_id> or *.zoom.us/[js]/<meeting_id>
     // Only capture the meeting ID here, password is extracted separately
     // Added 'i' flag for case-insensitive subdomain matching
-    return url.match(/^https?:\/\/(?:[a-z0-9-]+\.)?zoom\.us\/[js]\/(\d+)/i);
+    return url.match(/^https?:\/\/(?:[a-z0-9-]+\.)?zoom\.(?:us|com)\/[js]\/(\d+)/i);
   },
 
   build: (webUrl, match) => {
