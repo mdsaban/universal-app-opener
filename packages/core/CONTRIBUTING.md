@@ -72,25 +72,38 @@ To add support for a new app (e.g., Twitter/X, TikTok), follow these steps in `p
 
 2.  **Export the Handler:**
     Add your new handler to `packages/core/src/platforms/index.ts`.
-
-3.  **Register the Handler:**
-    Import and add your handler to the `handlers` array in `packages/core/src/index.ts`.
+    Add your new handler to the `handlers` array in `packages/core/src/platforms/index.ts`.
 
     ```typescript
-    // packages/core/src/index.ts
-    import {
-      instagramHandler,
-      linkedinHandler,
-      youtubeHandler,
-      twitterHandler, // Import your new handler
-    } from './platforms';
+    // packages/core/src/platforms/index.ts
+    import { twitterHandler } from './twitter';
 
-    const handlers = [
+    export const handlers = [
       youtubeHandler,
       linkedinHandler,
       instagramHandler,
       twitterHandler, // Add it to the list
     ];
+    ```
+
+3.  **Add Tests:**
+    Add tests for your new handler in `packages/core/src/tests/index.test.ts`.
+    ```typescript
+    // packages/core/src/tests/index.test.ts
+    const testCases: SocialLinks = {
+      // ...other cases
+      twitter: [
+        {
+          name: 'twitter profile',
+          url: 'https://twitter.com/elonmusk',
+          webUrl: 'https://twitter.com/elonmusk',
+          ios: 'twitter://user?screen_name=elonmusk',
+          android:
+            'intent://user?screen_name=elonmusk#Intent;scheme=twitter;package=com.twitter.android;end',
+        },
+      ],
+      // ...other cases
+    };
     ```
 
 ## Testing on Mobile
