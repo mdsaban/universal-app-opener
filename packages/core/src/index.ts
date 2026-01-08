@@ -18,6 +18,7 @@ import {
   zoomHandler,
 } from './platforms';
 import { DeepLinkHandler, DeepLinkResult } from './types';
+import { normalizeUrl } from './utils/normalizeUrl';
 
 export * from './types';
 
@@ -82,7 +83,7 @@ function getHostname(url: string): string | null {
 }
 
 export function generateDeepLink(url: string): DeepLinkResult {
-  const webUrl = url.trim();
+  const webUrl = normalizeUrl(url);
   const hostname = getHostname(webUrl);
 
   if (hostname) {
