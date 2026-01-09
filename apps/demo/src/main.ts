@@ -6,8 +6,30 @@ const openBtn = document.getElementById('openBtn') as HTMLButtonElement;
 const outputSection = document.getElementById('outputSection') as HTMLDivElement;
 const jsonOutput = document.getElementById('jsonOutput') as HTMLPreElement;
 const exampleLinks = document.querySelectorAll<HTMLAnchorElement>('.example-link');
+const warningSection = document.getElementById('warningSection') as HTMLDivElement;
 
 let currentResult: ReturnType<typeof generateDeepLink> | null = null;
+
+function isUnsupported(result: ReturnType<typeof generateDeepLink>) {
+  return result.platform === 'unknown';
+}
+
+function isValidUrl(input: string): boolean {
+  try {
+    const url =
+      input.startsWith('http://') || input.startsWith('https://') ? input : `https://${input}`;
+
+    const parsed = new URL(url);
+
+    if (!parsed.hostname.includes('.')) {
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
 
 function handleLinkClick(url: string, openInNewTab: boolean) {
   const result = generateDeepLink(url);
@@ -52,9 +74,23 @@ generateBtn.addEventListener('click', () => {
     return;
   }
 
+  if (!isValidUrl(url)) {
+    alert('Please enter a valid URL');
+    return;
+  }
+
   const result = generateDeepLink(url);
   currentResult = result;
   displayResult(result);
+
+  if (isUnsupported(result)) {
+    openBtn.disabled = true;
+    warningSection.classList.remove('hidden');
+  } else {
+    openBtn.disabled = false;
+    warningSection.classList.add('hidden');
+  }
+
   openBtn.classList.remove('hidden');
 });
 
