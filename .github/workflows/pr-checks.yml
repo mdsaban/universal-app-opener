@@ -41,6 +41,9 @@ jobs:
         # Assuming you have a turbo script or run tsc directly
         run: pnpm exec turbo type-check
 
+      - name: 🧪 Tests
+        run: pnpm --filter universal-app-opener test
+
       - name: 🏗️ Build
         run: pnpm build
         # This runs "turbo run build" from your package.json
