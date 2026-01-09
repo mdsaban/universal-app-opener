@@ -46,7 +46,9 @@ describe('normalizeUrl', () => {
 
     it('should be case-insensitive for subdomain removal', () => {
       const result = normalizeUrl('https://WWW.youtube.com/watch');
-      expect(result.toLowerCase()).not.toContain('www.');
+      expect(result).not.toContain('www.');
+      expect(result).not.toContain('WWW.');
+      expect(result).toContain('youtube.com');
     });
   });
 
@@ -113,7 +115,7 @@ describe('normalizeUrl', () => {
       expect(result).toContain('youtube.com/');
     });
 
-    it('should remove trailing slash with query params', () => {
+    it('should normalize pathname before query params', () => {
       const result = normalizeUrl('https://youtube.com/watch/?v=123');
       expect(result).not.toMatch(/\/\?/);
       expect(result).toContain('v=123');
@@ -121,8 +123,9 @@ describe('normalizeUrl', () => {
 
     it('should handle multiple trailing slashes', () => {
       const result = normalizeUrl('https://youtube.com/watch//');
-      // URL parsing typically normalizes this, but we test the behavior
+      // URL parsing normalizes //, and normalizeUrl removes one trailing slash
       expect(result).toContain('youtube.com');
+      expect(result).not.toMatch(/\/\/$/);
     });
   });
 
@@ -160,8 +163,8 @@ describe('normalizeUrl', () => {
     it('should return input as fallback for malformed URL', () => {
       const input = 'not a valid url at all $$$';
       const result = normalizeUrl(input);
-      // Fallback returns the trimmed input
-      expect(result).toBeTruthy();
+      // Fallback returns the trimmed input with https:// prepended
+      expect(result).toBe(`https://${input.trim()}`);
     });
 
     it('should handle URLs without path', () => {
@@ -183,13 +186,13 @@ describe('normalizeUrl', () => {
   describe('Edge cases', () => {
     it('should handle empty string', () => {
       const result = normalizeUrl('');
-      expect(result).toBeTruthy();
+      expect(result).toBe('https://');
     });
 
     it('should handle just whitespace', () => {
       const result = normalizeUrl('   ');
       // Should become https:// after trim
-      expect(result).toBeTruthy();
+      expect(result).toBe('https://');
     });
 
     it('should preserve special characters in parameters', () => {
