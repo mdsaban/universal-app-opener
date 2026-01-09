@@ -9,7 +9,8 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
   color: #e0e0e0;
   min-height: 100vh;
@@ -224,6 +225,12 @@ h1 {
   transform: translateY(0);
 }
 
+.generate-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
 .output-section {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 16px;
@@ -288,6 +295,35 @@ h1 {
   word-wrap: break-word;
 }
 
+.warning-section {
+  background: rgba(231, 76, 60, 0.12);
+  border: 1px solid rgba(231, 76, 60, 0.35);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.warning-section p {
+  color: #f5b7b1;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.warning-section strong {
+  color: #ff6b6b;
+}
+
+.warning-section a {
+  color: #ff7675;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.warning-section a:hover {
+  color: #ff8f8f;
+}
+
 /* Responsive Styles for mobile devices*/
 @media (max-width: 768px) {
   .container {
@@ -319,5 +355,14 @@ h1 {
 
   .subtitle {
     font-size: 1rem;
+  }
+
+  .warning-section {
+    padding: 14px;
+    margin-bottom: 1.25rem;
+  }
+
+  .warning-section p {
+    font-size: 0.9rem;
   }
 }
