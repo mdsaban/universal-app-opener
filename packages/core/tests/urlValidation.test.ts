@@ -74,7 +74,7 @@ describe('Deep link generation for all supported platforms', () => {
         expect(result.platform).not.toBe('unknown');
 
         // At least one deep link or web URL must exist
-        expect(result.ios || result.android || result.webUrl).toBeDefined();
+        expect(result.ios || result.android || result.webUrl).toBeTruthy();
 
         // Check web URL contains expected domain/pattern
         const patterns = webUrlPatterns[handlerName];
